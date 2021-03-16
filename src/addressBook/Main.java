@@ -14,8 +14,14 @@ public class Main {
         return entry.toString() + "\nAdded new entry!";
     }
 
-    public String removeEntry(String email){
-
+    public boolean removeEntry(String email){
+        for (int i = 0; i < addressBook.size(); i++) {
+            if (addressBook.get(i).getEmailAddress().equals(email)) {
+                System.out.println("Deleted the following entry:\n" + addressBook.get(i).toString());
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Entry> searchEntry(int searchType, String searchQuery){
