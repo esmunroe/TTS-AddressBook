@@ -22,6 +22,7 @@ public class AddressBook {
         for (int i = 0; i < this.addressBook.size(); i++) {
             if (this.addressBook.get(i).getEmailAddress().equals(email)) {
                 System.out.println("Deleted the following entry:\n" + this.addressBook.get(i).toString());
+                addressBook.remove(i);
                 return true;
             }
         }
