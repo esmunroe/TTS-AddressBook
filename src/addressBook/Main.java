@@ -57,10 +57,10 @@ public class Main {
         boolean invalid = false;
         int option = 0;
 
-        System.out.println("1) First Name" +
-                "2) Last Name" +
-                "3) Phone Number" +
-                "4) Email Address");
+        System.out.println("1) First Name\n" +
+                "2) Last Name\n" +
+                "3) Phone Number\n" +
+                "4) Email Address\n");
 
         do {
             try {
