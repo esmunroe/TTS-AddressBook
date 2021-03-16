@@ -101,6 +101,34 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        AddressBook addressBook = new AddressBook();
+        scanner = new Scanner(System.in);
+        int input = 0;
 
+        while (input != 6){
+            input = menu();
+            switch (input){
+                case 1:
+                    addEntry(addressBook);
+                    break;
+                case 2:
+                    String email = removeEntry();
+                    addressBook.removeEntry(email);
+                    break;
+                case 3:
+                    searchMenu(addressBook);
+                    break;
+                case 4:
+                    addressBook.printBook();
+                    break;
+                case 5:
+                    addressBook.deleteBook();
+                    break;
+                case 6:
+                    System.out.println("Goodbye");
+                default:
+                    System.out.println("Something went wrong!");
+            }
+        }
     }
 }
