@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner;
     private static int menu() {
         boolean invalid = false;
-        int option = 0;
+        int input = 0;
         System.out.println("1) Add an Entry\n" +
                 "2) Remove an Entry\n" +
                 "3) Search for a Specific Entry\n" +
@@ -19,15 +19,15 @@ public class Main {
             try {
                 System.out.print("Please choose what you'd like to do with the database: ");
                 invalid = false;
-                option = scanner.nextInt();
+                input = scanner.nextInt();
             } catch (InputMismatchException e) {
                 scanner.next();
                 invalid = true;
                 System.out.println("Invalid input! Please try again.");
             }
-        } while (invalid || (option < 1 || option > 6));
+        } while (invalid || (input < 1 || input > 6));
         scanner.nextLine();
-        return option;
+        return input;
     }
 
     public static void addEntry(AddressBook addressBook) {
