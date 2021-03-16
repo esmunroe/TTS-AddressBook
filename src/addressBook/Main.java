@@ -31,16 +31,16 @@ public class Main {
     }
 
     public static void addEntry(AddressBook addressBook) {
-        System.out.print("Enter first name: ");
+        System.out.print("First Name: ");
         String firstName = scanner.nextLine();
 
-        System.out.print("Enter last name: ");
+        System.out.print("Last Name: ");
         String lastName = scanner.nextLine();
 
-        System.out.print("Enter phone number: ");
+        System.out.print("Phone Number: ");
         String phone = scanner.nextLine();
 
-        System.out.print("Enter email: ");
+        System.out.print("Email Address: ");
         String email = scanner.next();
 
         Entry entry = new Entry(firstName, lastName, phone, email);
