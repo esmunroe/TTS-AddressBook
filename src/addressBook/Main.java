@@ -1,6 +1,7 @@
 package addressBook;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -44,6 +45,53 @@ public class Main {
 
         Entry entry = new Entry(firstName, lastName, phone, email);
         addressBook.addEntry(entry);
+    }
+
+    public static void searchMenu(AddressBook addressBook){
+        boolean invalid = false;
+        int option = 0;
+
+        System.out.println("1) First Name" +
+                "2) Last Name" +
+                "3) Phone Number" +
+                "4) Email Address");
+
+        do {
+            try {
+                System.out.print("Choose a search type: ");
+                invalid = false;
+                option = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                scanner.next();
+                invalid = true;
+                System.out.println("Invalid input! Please try again.");
+            }
+        } while (invalid || (option < 1 || option > 4));
+        scanner.nextLine();
+        System.out.print("Enter your search: ");
+        String searchQuery = scanner.nextLine();
+
+        List<Entry> searchResults = null;
+        switch (option){
+            case 1:
+                searchResults = addressBook.searchEntry("first", searchQuery);
+                break;
+            case 2:
+                searchResults = addressBook.searchEntry("last", searchQuery);
+                break;
+            case 3:
+                searchResults = addressBook.searchEntry("phone", searchQuery);
+                break;
+            case 4:
+                searchResults = addressBook.searchEntry("email", searchQuery);
+                break;
+            default:
+                System.out.println("Something went wrong here! searchMenu - Main.java");
+        }
+
+        for (Entry entry : searchResults){
+            System.out.println(entry);
+        }
     }
 
     public static void main(String[] args) {
