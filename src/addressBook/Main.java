@@ -24,8 +24,43 @@ public class Main {
         return false;
     }
 
-    public List<Entry> searchEntry(int searchType, String searchQuery){
+    public List<Entry> searchEntry(String searchType, String searchQuery){
+        List<Entry> result = new ArrayList<>();
 
+        switch (searchType){
+            case "first":
+                for (Entry entry : addressBook){
+                    if (entry.getFirstName().contains(searchQuery)){
+                        result.add(entry);
+                    }
+                }
+                break;
+            case "last":
+                for (Entry entry : addressBook){
+                    if (entry.getLastName().contains(searchQuery)){
+                        result.add(entry);
+                    }
+                }
+                break;
+            case "phone":
+                for (Entry entry : addressBook){
+                    if (entry.getPhoneNumber().contains(searchQuery)){
+                        result.add(entry);
+                    }
+                }
+                break;
+            case "email":
+                for (Entry entry : addressBook){
+                    if (entry.getEmailAddress().contains(searchQuery)){
+                        result.add(entry);
+                    }
+                }
+                break;
+            default:
+                System.out.println("Invalid search option!");
+        }
+
+        return result;
     }
 
     public void printBook(){
