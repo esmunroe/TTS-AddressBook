@@ -18,15 +18,15 @@ public class AddressBook {
         return entry.toString() + "\nAdded new entry!";
     }
 
-    public boolean removeEntry(String email){
+    public void removeEntry(String email){
         for (int i = 0; i < this.addressBook.size(); i++) {
             if (this.addressBook.get(i).getEmailAddress().equals(email)) {
                 System.out.println("Deleted the following entry:\n" + this.addressBook.get(i).toString());
                 addressBook.remove(i);
-                return true;
+                break;
             }
         }
-        return false;
+        System.out.println("Entry not found!");
     }
 
     public List<Entry> searchEntry(String searchType, String searchQuery){
@@ -64,6 +64,9 @@ public class AddressBook {
             default:
                 System.out.println("Invalid search option!");
         }
+
+        if (result.isEmpty())
+            System.out.println("No results found!");
 
         return result;
     }
