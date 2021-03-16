@@ -19,11 +19,14 @@ public class Main {
     }
 
     public void printBook(){
-
+        for (Entry entry : addressBook) {
+            System.out.println(entry.toString() + "\n");
+        }
     }
 
     public void deleteBook(){
-
+        addressBook.clear();
+        System.out.println("Address book cleared!");
     }
 
     public static void main(String[] args) {
