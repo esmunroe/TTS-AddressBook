@@ -29,6 +29,23 @@ public class Main {
         return option;
     }
 
+    public static void addEntry(AddressBook addressBook) {
+        System.out.print("Enter first name: ");
+        String firstName = scanner.nextLine();
+
+        System.out.print("Enter last name: ");
+        String lastName = scanner.nextLine();
+
+        System.out.print("Enter phone number: ");
+        String phone = scanner.nextLine();
+
+        System.out.print("Enter email: ");
+        String email = scanner.next();
+
+        Entry entry = new Entry(firstName, lastName, phone, email);
+        addressBook.addEntry(entry);
+    }
+
     public static void main(String[] args) {
 
     }
