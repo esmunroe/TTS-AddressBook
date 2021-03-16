@@ -47,6 +47,12 @@ public class Main {
         addressBook.addEntry(entry);
     }
 
+    public static String removeEntry() {
+        System.out.print("Enter an entry's email to remove: ");
+        String input = scanner.nextLine();
+        return input;
+    }
+
     public static void searchMenu(AddressBook addressBook){
         boolean invalid = false;
         int option = 0;
