@@ -54,7 +54,7 @@ public class Entry {
         return "************" +
                 "\nFirst Name: " + firstName +
                 "\nLast Name: " + lastName +
-                "\n Phone Number: " + phoneNumber +
+                "\nPhone Number: " + phoneNumber +
                 "\nEmail Address: " + emailAddress +
                 "\n************";
     }
