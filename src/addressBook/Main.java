@@ -44,7 +44,7 @@ public class Main {
         String email = scanner.next();
 
         Entry entry = new Entry(firstName, lastName, phone, email);
-        addressBook.addEntry(entry);
+        System.out.println(addressBook.addEntry(entry));
     }
 
     public static String removeEntry() {
