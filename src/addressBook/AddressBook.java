@@ -23,7 +23,7 @@ public class AddressBook {
             if (this.addressBook.get(i).getEmailAddress().equals(email)) {
                 System.out.println("Deleted the following entry:\n" + this.addressBook.get(i).toString());
                 addressBook.remove(i);
-                break;
+                return;
             }
         }
         System.out.println("Entry not found!");
