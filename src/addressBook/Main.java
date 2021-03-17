@@ -35,12 +35,11 @@ public class Main {
 
     public static String removeEntry() {
         System.out.print("Enter an entry's email to remove: ");
-        String input = scanner.nextLine();
-        return input;
+        return scanner.nextLine();
     }
 
     public static void searchMenu(AddressBook addressBook){
-        int input = 0;
+        int input;
 
         System.out.println("1) First Name\n" +
                 "2) Last Name\n" +
@@ -78,7 +77,7 @@ public class Main {
     }
 
     public static int getInput(String message, int maxOptions){
-        boolean invalid = false;
+        boolean invalid;
         int input = 0;
         do {
             try {
