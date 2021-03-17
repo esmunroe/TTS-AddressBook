@@ -7,27 +7,13 @@ import java.util.Scanner;
 public class Main {
     private static Scanner scanner;
     private static int menu() {
-        boolean invalid = false;
-        int input = 0;
         System.out.println("1) Add an Entry\n" +
                 "2) Remove an Entry\n" +
                 "3) Search for a Specific Entry\n" +
                 "4) Print Address Book\n" +
                 "5) Delete Book\n" +
                 "6) Quit");
-        do {
-            try {
-                System.out.print("Please choose what you'd like to do with the database: ");
-                invalid = false;
-                input = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                scanner.next();
-                invalid = true;
-                System.out.println("Invalid input! Please try again.");
-            }
-        } while (invalid || (input < 1 || input > 6));
-        scanner.nextLine();
-        return input;
+        return getInput("Please choose what you'd like to do with the database: ", 6);
     }
 
     public static void addEntry(AddressBook addressBook) {
@@ -54,31 +40,22 @@ public class Main {
     }
 
     public static void searchMenu(AddressBook addressBook){
-        boolean invalid = false;
-        int option = 0;
+        int input = 0;
 
         System.out.println("1) First Name\n" +
                 "2) Last Name\n" +
                 "3) Phone Number\n" +
-                "4) Email Address\n");
+                "4) Email Address\n" +
+                "5) Return to Menu");
+        input = getInput("Choose a search type: ", 5);
+        if (input == 5)
+            return;
 
-        do {
-            try {
-                System.out.print("Choose a search type: ");
-                invalid = false;
-                option = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                scanner.next();
-                invalid = true;
-                System.out.println("Invalid input! Please try again.");
-            }
-        } while (invalid || (option < 1 || option > 4));
-        scanner.nextLine();
         System.out.print("Enter your search: ");
         String searchQuery = scanner.nextLine();
 
         List<Entry> searchResults = null;
-        switch (option){
+        switch (input){
             case 1:
                 searchResults = addressBook.searchEntry("first", searchQuery);
                 break;
@@ -98,6 +75,24 @@ public class Main {
         for (Entry entry : searchResults){
             System.out.println(entry);
         }
+    }
+
+    public static int getInput(String message, int maxOptions){
+        boolean invalid = false;
+        int input = 0;
+        do {
+            try {
+                System.out.print(message);
+                invalid = false;
+                input = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                scanner.next();
+                invalid = true;
+                System.out.println("Invalid input! Please try again.");
+            }
+        } while (invalid || (input < 1 || input > maxOptions));
+        scanner.nextLine();
+        return input;
     }
 
     public static void main(String[] args) {
