@@ -126,6 +126,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("Goodbye");
+                    break;
                 default:
                     System.out.println("Something went wrong!");
             }
