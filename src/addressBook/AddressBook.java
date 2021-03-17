@@ -15,7 +15,7 @@ public class AddressBook {
             return "Error! This entry contains an email address already in the book.";
         }
         this.addressBook.add(entry);
-        return entry.toString() + "\nAdded new entry!";
+        return entry.toString() + "\nAdded new entry!\n";
     }
 
     public void removeEntry(String email){
@@ -26,7 +26,7 @@ public class AddressBook {
                 return;
             }
         }
-        System.out.println("Entry not found!");
+        System.out.println("Entry not found!\n");
     }
 
     public List<Entry> searchEntry(String searchType, String searchQuery){
@@ -77,7 +77,7 @@ public class AddressBook {
             return;
         }
         for (Entry entry : this.addressBook) {
-            System.out.println(entry.toString() + "\n");
+            System.out.println(entry.toString());
         }
     }
 

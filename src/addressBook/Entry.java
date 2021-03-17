@@ -56,7 +56,7 @@ public class Entry {
                 "\nLast Name: " + lastName +
                 "\nPhone Number: " + phoneNumber +
                 "\nEmail Address: " + emailAddress +
-                "\n************";
+                "\n************\n";
     }
 
     @Override
