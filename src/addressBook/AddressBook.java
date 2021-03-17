@@ -72,6 +72,10 @@ public class AddressBook {
     }
 
     public void printBook(){
+        if (this.addressBook.isEmpty()){
+            System.out.println();
+            return;
+        }
         for (Entry entry : this.addressBook) {
             System.out.println(entry.toString() + "\n");
         }
