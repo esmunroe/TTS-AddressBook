@@ -73,7 +73,7 @@ public class AddressBook {
 
     public void printBook(){
         if (this.addressBook.isEmpty()){
-            System.out.println();
+            System.out.println("Address Book is empty!");
             return;
         }
         for (Entry entry : this.addressBook) {
